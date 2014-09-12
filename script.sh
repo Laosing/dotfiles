@@ -19,7 +19,7 @@ FILES=".bash_aliases .inputrc"
 
 #Symlink Files
 for file in $FILES; do
-  echo "Symlinking dotfiles..."
+  echo -n "Symlinking dotfile... "
   ln -sv $DIR/$file ~/$file
   echo "Done!"
 done
