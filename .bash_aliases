@@ -1,5 +1,6 @@
 alias web='cd /home/andrew/Sites'
 alias xamp='cd /opt/lampp'
+alias dotfiles='cd ~/dotfiles'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -45,3 +46,4 @@ alias gcl='git clean'
 alias gb='git branch'
 alias gch='git checkout'
 alias gdi='git diff'
+alias gamend='git commit --amend'
