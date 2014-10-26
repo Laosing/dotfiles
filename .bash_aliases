@@ -18,7 +18,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 alias open.='nautilus .'
-alias oo='nautilus .'
+alias o='nautilus .'
 
 alias upd='sudo apt-get update'
 alias upg='sudo apt-get upgrade'

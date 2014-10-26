@@ -4,7 +4,8 @@
 	"font_size": 13,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"SideBarEnhancements"
 	],
 	"tab_size": 2,
 	"theme": "predawn.sublime-theme",
