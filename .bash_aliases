@@ -21,6 +21,7 @@ alias open.='nautilus .'
 alias o='nautilus .'
 
 alias upd='sudo apt-get update'
+alias updall='sudo apt-get update; sudo apt-get upgrade; gem update;'
 alias upg='sudo apt-get upgrade'
 alias dupg='sudo apt-get dist-upgrade'
 alias remv='sudo apt-get autoremove'
