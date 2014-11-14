@@ -49,3 +49,5 @@ alias gb='git branch'
 alias gch='git checkout'
 alias gdi='git diff'
 alias gamend='git commit --amend'
+
+alias drush='sudo drush'
