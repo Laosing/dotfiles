@@ -4,11 +4,14 @@
 	"font_size": 14,
 	"ignored_packages":
 	[
+		"SideBarEnhancements",
 		"Vintage",
-		"SideBarEnhancements"
+		"Package Control"
 	],
 	"tab_size": 2,
 	"theme": "predawn.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"word_wrap": true
+	"word_wrap": true,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true, 
 }

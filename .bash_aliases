@@ -52,3 +52,4 @@ alias gdi='git diff'
 alias gamend='git commit --amend'
 
 alias drush='sudo drush'
+alias s='subl .'
