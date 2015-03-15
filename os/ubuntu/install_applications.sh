@@ -34,6 +34,7 @@ declare -a APT_PACKAGES=(
     "xclip"
     # "zopfli"
     "sublime-text-installer"
+    "tilda"
 
 )
 
@@ -52,30 +53,30 @@ add_ppa() {
 add_software_sources() {
 
     # Atom
-    [ $(cmd_exists "atom") -eq 1 ] \
-        && add_ppa "webupd8team/atom"
+    # [ $(cmd_exists "atom") -eq 1 ] \
+        # && add_ppa "webupd8team/atom"
 
     # Firefox Nightly
-    [ $(cmd_exists "firefox-trunk") -eq 1 ] \
-        && add_ppa "ubuntu-mozilla-daily/ppa"
+    # [ $(cmd_exists "firefox-trunk") -eq 1 ] \
+        # && add_ppa "ubuntu-mozilla-daily/ppa"
 
     # Google Chrome
-    [ $(cmd_exists "google-chrome") -eq 1 ] \
-        && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
-        && add_source_list \
-                "http://dl.google.com/linux/deb/ stable main" \
-                "google-chrome.list"
+    # [ $(cmd_exists "google-chrome") -eq 1 ] \
+        # && add_key "https://dl-ssl.google.com/linux/linux_signing_key.pub" \
+        # && add_source_list \
+                # "http://dl.google.com/linux/deb/ stable main" \
+                # "google-chrome.list"
 
     # NodeJS
     [ $(cmd_exists "node") -eq 1 ] \
         && add_ppa "chris-lea/node.js"
 
     # Opera & Opera Next
-    [ $(cmd_exists "opera") -eq 1 ] \
-        && add_key "http://deb.opera.com/archive.key" \
-        && add_source_list \
-                "http://deb.opera.com/opera/ stable non-free" \
-                "opera.list"
+    # [ $(cmd_exists "opera") -eq 1 ] \
+        # && add_key "http://deb.opera.com/archive.key" \
+        # && add_source_list \
+                # "http://deb.opera.com/opera/ stable non-free" \
+                # "opera.list"
 
     # Sublime Text
     [ $(cmd_exists "sublime-text-installer") -eq 1 ] \

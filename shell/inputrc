@@ -8,8 +8,14 @@
 # Disable beeping and window flashing
 set bell-style none
 
-# Use case-insensitive TAB autocompletion
+# Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
-# Auto list TAB completions
-set show-all-if-ambiguous off
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+set match-hidden-files off 
