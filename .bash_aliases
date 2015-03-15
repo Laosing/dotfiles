@@ -3,6 +3,7 @@ alias xamp='cd /opt/lampp'
 alias dotfiles='cd ~/dotfiles'
 alias devhost='xdg-open /opt/lampp/etc/extra/httpd-vhosts.conf; xdg-open /etc/hosts;'
 
+alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
