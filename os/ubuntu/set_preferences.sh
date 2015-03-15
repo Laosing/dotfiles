@@ -57,7 +57,7 @@ set_ui_and_ux_settings() {
 
 main() {
     execute "set_privacy_settings" "Privacy"
-    # execute "set_ui_and_ux_settings" "UI & UX"
+    execute "set_ui_and_ux_settings" "UI & UX"
 }
 
-main
+# main

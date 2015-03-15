@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")" && source "../utils.sh"
 declare -a APT_PACKAGES=(
 
     # Tools for compiling/building software from source
-    # "build-essential"
+    "build-essential"
 
     # GnuPG archive keys of the Debian archive
     # "debian-archive-keyring"
@@ -33,7 +33,7 @@ declare -a APT_PACKAGES=(
     # "vlc"
     "xclip"
     # "zopfli"
-    "sublime-text"
+    "sublime-text-installer"
 
 )
 
@@ -77,6 +77,9 @@ add_software_sources() {
                 "http://deb.opera.com/opera/ stable non-free" \
                 "opera.list"
 
+    # Sublime Text
+    [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
+        && add_ppa "webupd8team/sublime-text-3"
 }
 
 add_source_list() {
@@ -87,7 +90,7 @@ install_package() {
     local q="${2:-$1}"
 
     if [ $(cmd_exists "$q") -eq 1 ]; then
-        execute "sudo apt-get install --allow-unauthenticated -qqy $1" "$1"
+        execute "sudo apt-get install --allow-unauthenticated -y $1" "$1"
         #                                      suppress output ─┘│
         #            assume "yes" as the answer to all prompts ──┘
     fi
@@ -104,10 +107,10 @@ remove_unneeded_packages() {
 update_and_upgrade() {
 
     # Resynchronize the package index files from their sources
-    execute "sudo apt-get update -qqy" "update"
+    execute "sudo apt-get update -y" "update"
 
     # Unstall the newest versions of all packages installed
-    execute "sudo apt-get upgrade -qqy" "upgrade"
+    # execute "sudo apt-get upgrade -qqy" "upgrade"
 
 }
 
@@ -118,7 +121,7 @@ main() {
     local i=""
 
     add_software_sources
-    # update_and_upgrade
+    update_and_upgrade
 
     printf "\n"
 
