@@ -1,0 +1,19 @@
+#!/bin/bash
+
+declare -r GIT_USER_EMAIL="andrewrattana@gmail.com"
+declare -r GIT_USER_NAME="Drew"
+
+# ----------------------------------------------------------------------
+
+# Set local aliases
+
+# alias starwars="telnet towel.blinkenlights.nl"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set local Git credentials
+
+git config --global user.name "$GIT_USER_NAME"
+git config --global user.email "$GIT_USER_EMAIL"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
