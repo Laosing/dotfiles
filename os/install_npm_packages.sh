@@ -11,7 +11,7 @@ declare -r -a NPM_PACKAGES=(
 main() {
 
     # Check if `npm` is installed
-    if [ $(cmd_exists "npm") -eq 0 ]; then
+    if [ $(cmd_exists "npm") -eq 1 ]; then
         print_error "npm is required, please install it!\n"
         exit
     fi
