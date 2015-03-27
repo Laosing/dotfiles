@@ -79,6 +79,8 @@ alias newalias='xdg-open ~/.bash_aliases'
 alias c='clear'
 alias e='exit'
 
+alias port='ps -ef |grep node'
+
 alias astart='sudo /opt/lampp/lampp start'
 alias astop='sudo /opt/lampp/lampp stop'
 alias are='sudo /opt/lampp/lampp restart'
