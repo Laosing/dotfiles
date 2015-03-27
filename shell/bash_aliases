@@ -80,7 +80,8 @@ alias c='clear'
 alias e='exit'
 alias o="xdg-open"
 
-alias port='ps -ef |grep node'
+alias port='ps -ef |grep'
+alias portall='netstat -antp |grep 80'
 
 alias astart='sudo /opt/lampp/lampp start'
 alias astop='sudo /opt/lampp/lampp stop'
