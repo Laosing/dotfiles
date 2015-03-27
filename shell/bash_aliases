@@ -78,6 +78,7 @@ alias newalias='xdg-open ~/.bash_aliases'
 
 alias c='clear'
 alias e='exit'
+alias o="xdg-open"
 
 alias port='ps -ef |grep node'
 
