@@ -52,9 +52,8 @@ fi
 # Custom
 
 alias web='cd /home/andrew/Sites'
-alias xamp='cd /opt/lampp'
 alias dotfiles='cd ~/dotfiles'
-alias devhost='xdg-open /opt/lampp/etc/extra/httpd-vhosts.conf; xdg-open /etc/hosts;'
+alias devhost='xdg-open /etc/apache2/sites-available/000-default.conf; xdg-open /etc/hosts;'
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -87,9 +86,13 @@ alias o="xdg-open"
 alias port='ps -ef |grep'
 alias portall='netstat -antp |grep 80'
 
-alias astart='sudo /opt/lampp/lampp start'
-alias astop='sudo /opt/lampp/lampp stop'
-alias are='sudo /opt/lampp/lampp restart'
+alias xamp='cd /opt/lampp'
+alias xampdevhost='xdg-open /opt/lampp/etc/extra/httpd-vhosts.conf; xdg-open /etc/hosts;'
+alias xampstart='sudo /opt/lampp/lampp start'
+alias xampstop='sudo /opt/lampp/lampp stop'
+alias xampre='sudo /opt/lampp/lampp restart'
+
+alias are='sudo service apache2 restart'
 
 alias gst='git status'
 alias ga='git add'
