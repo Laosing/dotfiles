@@ -52,6 +52,7 @@ fi
 # Custom
 
 alias web='cd /home/andrew/Sites'
+alias lamp='cd /etc/apache2'
 alias dotfiles='cd ~/dotfiles'
 alias devhost='xdg-open /etc/apache2/sites-available/000-default.conf; xdg-open /etc/hosts;'
 
@@ -110,3 +111,4 @@ alias gamend='git commit --amend'
 
 alias drush='sudo drush'
 alias s='subl .'
+alias a='atom .'
