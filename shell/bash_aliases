@@ -84,7 +84,8 @@ alias c='clear'
 alias e='exit'
 alias o="xdg-open"
 
-alias portall='netstat -antp |grep 80'
+alias port80='netstat -antp |grep 80'
+alias portall='netstat -tulpn'
 
 alias xamp='cd /opt/lampp'
 alias xampdevhost='xdg-open /opt/lampp/etc/extra/httpd-vhosts.conf; xdg-open /etc/hosts;'
