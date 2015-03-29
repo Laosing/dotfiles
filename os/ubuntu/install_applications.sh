@@ -15,7 +15,7 @@ declare -a APT_PACKAGES=(
     #"ubuntu-restricted-extras"
 
     # Other
-    # "atom"
+    "atom"
     # "chromium-browser"
     "curl"
     # "firefox-trunk"
@@ -33,9 +33,9 @@ declare -a APT_PACKAGES=(
     # "vlc"
     "xclip"
     # "zopfli"
-    "sublime-text-installer"
+    # "sublime-text-installer"
     "tilda"
-
+    "nodejs"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -53,8 +53,8 @@ add_ppa() {
 add_software_sources() {
 
     # Atom
-    # [ $(cmd_exists "atom") -eq 1 ] \
-        # && add_ppa "webupd8team/atom"
+    [ $(cmd_exists "atom") -eq 1 ] \
+        && add_ppa "webupd8team/atom"
 
     # Firefox Nightly
     # [ $(cmd_exists "firefox-trunk") -eq 1 ] \
@@ -69,7 +69,13 @@ add_software_sources() {
 
     # NodeJS
     [ $(cmd_exists "node") -eq 1 ] \
-        && add_ppa "chris-lea/node.js"
+        && curl -sL https://deb.nodesource.com/setup | sudo bash -
+        # && add_ppa "chris-lea/node.js"
+
+    # RVM & Ruby
+    [ $(cmd_exists "rvm") -eq 1 ] \
+        && gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
+        && \curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
 
     # Opera & Opera Next
     # [ $(cmd_exists "opera") -eq 1 ] \
@@ -79,8 +85,8 @@ add_software_sources() {
                 # "opera.list"
 
     # Sublime Text
-    [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
-        && add_ppa "webupd8team/sublime-text-3"
+    # [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
+    #     && add_ppa "webupd8team/sublime-text-3"
 }
 
 add_source_list() {
