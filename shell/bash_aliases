@@ -51,7 +51,7 @@ fi
 
 # Custom
 
-alias web='cd /home/andrew/Sites'
+alias web='cd ~/Sites'
 alias lamp='cd /etc/apache2'
 alias dotfiles='cd ~/dotfiles'
 alias devhost='xdg-open /etc/apache2/sites-available/000-default.conf; xdg-open /etc/hosts;'
@@ -70,13 +70,13 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-alias upd='sudo apt-get update'
-alias updall='sudo apt-get update; sudo apt-get upgrade; gem update;'
-alias upg='sudo apt-get upgrade'
-alias dupg='sudo apt-get dist-upgrade'
-alias remv='sudo apt-get autoremove'
-alias inst='sudo apt-get install'
-alias sag='sudo apt-get'
+alias aptup='sudo apt-get update'
+alias aptupall='sudo apt-get update; sudo apt-get upgrade; gem update;'
+alias aptupg='sudo apt-get upgrade'
+alias aptdi='sudo apt-get dist-upgrade'
+alias aptre='sudo apt-get autoremove'
+alias aptin='sudo apt-get install'
+alias apt='sudo apt-get'
 
 alias newalias='xdg-open ~/.bash_aliases'
 
@@ -84,7 +84,6 @@ alias c='clear'
 alias e='exit'
 alias o="xdg-open"
 
-alias port='ps -ef |grep'
 alias portall='netstat -antp |grep 80'
 
 alias xamp='cd /opt/lampp'
