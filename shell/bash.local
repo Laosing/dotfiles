@@ -1,7 +1,7 @@
 #!/bin/bash
 
-declare -r GIT_USER_EMAIL="andrewrattana@gmail.com"
-declare -r GIT_USER_NAME="Drew"
+declare -r GIT_USER_EMAIL="andrew.rattana@gmail.com"
+declare -r GIT_USER_NAME="Laosing"
 
 # ----------------------------------------------------------------------
 
