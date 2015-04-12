@@ -113,3 +113,7 @@ alias gamend='git commit --amend'
 alias drush='sudo drush'
 alias s='subl .'
 alias a='atom .'
+
+alias mdbstart='sudo service mongod start'
+alias mdbstop='sudo service mongod stop'
+alias mdbre='sudo service mongod restart'
