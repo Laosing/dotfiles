@@ -19,9 +19,9 @@ declare -a FILES_TO_SYMLINK=(
     "git/gitattributes"
     "git/gitignore"
 
-    "vim/vim"
-    "vim/vimrc"
-    "vim/gvimrc"
+    # "vim/vim"
+    # "vim/vimrc"
+    # "vim/gvimrc"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

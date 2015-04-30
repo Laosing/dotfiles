@@ -15,11 +15,11 @@ declare -a APT_PACKAGES=(
     #"ubuntu-restricted-extras"
 
     # Other
-    "atom"
+    # "atom"
     # "chromium-browser"
     "curl"
     # "firefox-trunk"
-    "flashplugin-installer"
+    # "flashplugin-installer"
     # "gimp"
     "git"
     # "google-chrome-unstable"
@@ -28,14 +28,14 @@ declare -a APT_PACKAGES=(
     # "opera"
     # "opera-next"
     # "transmission"
-    "vim-gnome"
+    # "vim-gnome"
     # "virtualbox"
     # "vlc"
-    "xclip"
+    # "xclip"
     # "zopfli"
-    # "sublime-text-installer"
+    "sublime-text-installer"
     "tilda"
-    "nodejs"
+    # "nodejs"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -53,8 +53,8 @@ add_ppa() {
 add_software_sources() {
 
     # Atom
-    [ $(cmd_exists "atom") -eq 1 ] \
-        && add_ppa "webupd8team/atom"
+    # [ $(cmd_exists "atom") -eq 1 ] \
+    #     && add_ppa "webupd8team/atom"
 
     # Firefox Nightly
     # [ $(cmd_exists "firefox-trunk") -eq 1 ] \
@@ -67,6 +67,19 @@ add_software_sources() {
                 # "http://dl.google.com/linux/deb/ stable main" \
                 # "google-chrome.list"
 
+    # Opera & Opera Next
+    # [ $(cmd_exists "opera") -eq 1 ] \
+        # && add_key "http://deb.opera.com/archive.key" \
+        # && add_source_list \
+                # "http://deb.opera.com/opera/ stable non-free" \
+                # "opera.list"
+
+    # Sublime Text
+    [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
+        && add_ppa "webupd8team/sublime-text-3"
+}
+
+add_curl_software() {
     # NodeJS
     [ $(cmd_exists "node") -eq 1 ] \
         && curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -81,17 +94,6 @@ add_software_sources() {
     [ $(cmd_exists "rvm") -eq 1 ] \
         && gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
         && \curl -sSL https://get.rvm.io | bash -s stable --ruby=1.9.3
-
-    # Opera & Opera Next
-    # [ $(cmd_exists "opera") -eq 1 ] \
-        # && add_key "http://deb.opera.com/archive.key" \
-        # && add_source_list \
-                # "http://deb.opera.com/opera/ stable non-free" \
-                # "opera.list"
-
-    # Sublime Text
-    # [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
-    #     && add_ppa "webupd8team/sublime-text-3"
 }
 
 add_source_list() {
@@ -143,8 +145,9 @@ main() {
 
     printf "\n"
 
-    # update_and_upgrade
-    # remove_unneeded_packages
+    add_curl_software
+    update_and_upgrade
+    remove_unneeded_packages
 
 }
 
