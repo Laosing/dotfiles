@@ -83,12 +83,13 @@ add_curl_software() {
     # NodeJS
     [ $(cmd_exists "node") -eq 1 ] \
         && curl -sL https://deb.nodesource.com/setup | sudo bash -
+        sudo apt-get install --allow-unauthenticated -qqy nodejs
         # && add_ppa "chris-lea/node.js"
 
     # Composer
     [ $(cmd_exists "composer") -eq 1 ] \
-        && curl -sS https://getcomposer.org/installer | php \
-        && sudo mv composer.phar /usr/local/bin/composer
+        && curl -sS https://getcomposer.org/installer | php
+        sudo mv composer.phar /usr/local/bin/composer
 
     # RVM & Ruby
     [ $(cmd_exists "rvm") -eq 1 ] \
