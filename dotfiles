@@ -239,8 +239,7 @@ main() {
     printf "\n"
 
     if answer_is_yes; then
-        cp -Rf .config/sublime-text-3 ~/.config/sublime-text-3
-        cp -Rf .config/tilda ~/.config/tilda
+        sudo cp -rf .config/* ~/.config
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
