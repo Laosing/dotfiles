@@ -259,6 +259,18 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    print_info "Install LAMP"
+
+    ask_for_confirmation "Do you want to install LAMP server?"
+    printf "\n"
+
+    if answer_is_yes; then
+        sudo apt-get install tasksel
+        sudo tasksel install lamp-server
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     if [ $(cmd_exists "git") -eq 0 ]; then
 
         if [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then

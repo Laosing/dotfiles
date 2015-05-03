@@ -104,7 +104,7 @@ install_package() {
     local q="${2:-$1}"
 
     if [ $(cmd_exists "$q") -eq 1 ]; then
-        execute "sudo apt-get install --allow-unauthenticated -y $1" "$1"
+        execute "sudo apt-get install --allow-unauthenticated -qqy $1" "$1"
         #                                      suppress output ─┘│
         #            assume "yes" as the answer to all prompts ──┘
     fi
@@ -124,7 +124,7 @@ update_and_upgrade() {
     execute "sudo apt-get update -y" "update"
 
     # Unstall the newest versions of all packages installed
-    # execute "sudo apt-get upgrade -qqy" "upgrade"
+    execute "sudo apt-get upgrade -qqy" "upgrade"
 
 }
 
