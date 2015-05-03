@@ -244,6 +244,29 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    print_info "Install LAMP"
+
+    ask_for_confirmation "Do you want to install LAMP server?"
+    printf "\n"
+
+    if answer_is_yes; then
+        sudo apt-get install --allow-unauthenticated -qqy tasksel
+        sudo tasksel install lamp-server
+
+        if [ -d "/etc/apache2" ]; then
+            sudo chown -R $USER /var/www
+            sudo ln -s /var/www/html ~/Sites
+
+            sudo chown -R $USER /etc/apache2/sites-available
+            sudo chown -R $USER /etc/hosts
+
+            echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
+            sudo a2enconf fqdn
+        fi
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     print_info "Install applications"
 
     ask_for_confirmation "Do you want to install the applications/command line tools?"
@@ -267,29 +290,6 @@ main() {
     # if answer_is_yes; then
     #     ./os/set_preferences.sh
     # fi
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    print_info "Install LAMP"
-
-    ask_for_confirmation "Do you want to install LAMP server?"
-    printf "\n"
-
-    if answer_is_yes; then
-        sudo apt-get install --allow-unauthenticated -qqy tasksel
-        sudo tasksel install lamp-server
-
-        if [ -d "/etc/apache2" ]; then
-            sudo chown -R $USER /var/www
-            sudo ln -s /var/www/html ~/Sites
-
-            sudo chown -R $USER /etc/apache2/sites-available
-            sudo chown -R $USER /etc/hosts
-
-            echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
-            sudo a2enconf fqdn
-        fi
-    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
