@@ -4,8 +4,11 @@
 	],
 	"installed_packages":
 	[
+		"Emmet",
+		"JavaScript Snippets",
 		"Package Control",
 		"SideBarEnhancements",
+		"Syntax Highlighting for Sass",
 		"Theme - SoDaReloaded",
 		"Themr",
 		"Tomorrow Color Schemes"
