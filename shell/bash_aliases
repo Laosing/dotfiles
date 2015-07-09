@@ -82,7 +82,6 @@ alias newalias='xdg-open ~/.bash_aliases'
 
 alias c='clear'
 alias e='exit'
-alias o="xdg-open"
 
 alias port80='netstat -antp |grep 80'
 alias portall='netstat -tulpn'
@@ -95,6 +94,7 @@ alias xampre='sudo /opt/lampp/lampp restart'
 
 alias are='sudo service apache2 restart'
 
+alias g='git'
 alias gst='git status'
 alias ga='git add'
 alias gcm='git commit -m'
@@ -107,10 +107,12 @@ alias gre='git reset'
 alias gcl='git clean'
 alias gb='git branch'
 alias gch='git checkout'
-alias gdi='git diff'
+alias gd='git diff'
 alias gamend='git commit --amend'
 
-alias drush='sudo drush'
+alias d='drush'
+alias dcc='drush cc all'
+
 alias s='subl .'
 alias a='atom .'
 
