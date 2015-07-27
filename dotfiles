@@ -263,6 +263,15 @@ main() {
 
             echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
             sudo a2enconf fqdn
+            sudo a2enmod rewrite
+            sudo apt-get -qq install php5-curl
+
+            echo '
+                <Directory "/var/www/html">
+                    AllowOverride All
+                </Directory>' >> /etc/apache2/sites-available/000-default.conf
+
+            sudo service apache2 restart
         fi
     fi
 
