@@ -266,6 +266,7 @@ main() {
             sudo a2enconf fqdn
             sudo a2enmod rewrite
             sudo apt-get -qq install php5-curl
+            sudo apt-get -qq install php5-gd
 
             echo '
                 <Directory "/var/www/html">
