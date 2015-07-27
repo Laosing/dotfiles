@@ -5,8 +5,8 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Make vim the default editor
-export EDITOR="vim"
+# Make subl the default editor
+export EDITOR="subl"
 
 # Ignore commands that start with spaces and duplicates
 export HISTCONTROL=ignoreboth
