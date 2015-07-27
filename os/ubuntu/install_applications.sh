@@ -82,20 +82,21 @@ add_software_sources() {
 add_curl_software() {
     # NodeJS
     [ $(cmd_exists "node") -eq 1 ] \
-        && curl -sL https://deb.nodesource.com/setup | sudo bash -
+        && curl -sL https://deb.nodesource.com/setup | sudo bash - \
         sudo apt-get install --allow-unauthenticated -qqy nodejs
         # && add_ppa "chris-lea/node.js"
 
     # Composer
     [ $(cmd_exists "composer") -eq 1 ] \
-        && curl -sS https://getcomposer.org/installer | php
+        && curl -sS https://getcomposer.org/installer | php \
         sudo mv composer.phar /usr/local/bin/composer
 
     # RVM & Ruby
     [ $(cmd_exists "rvm") -eq 1 ] \
-        && gpg -q --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-        && \curl -sSL https://get.rvm.io | bash -s stable --ruby
-        && rvm reset && rvm version
+        && gpg -q --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
+        \curl -sSL https://get.rvm.io | bash -s stable --ruby \
+        rvm reset \
+        rvm version
 }
 
 add_source_list() {
