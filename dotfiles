@@ -257,6 +257,7 @@ main() {
         if [ -d "/etc/apache2" ]; then
             sudo chown -R $USER /var/www
             sudo ln -s /var/www/html ~/Sites
+            cp -rf .sites/* ~/Sites
 
             sudo chown -R $USER /etc/apache2/sites-available
             sudo chown -R $USER /etc/hosts
