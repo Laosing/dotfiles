@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Exec=/usr/bin/tilda
+Exec=/usr/bin/guake
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Name[en_CA]=Tilda
-Name=Tilda
-Comment[en_CA]=
+Name[en_US]=Guake
+Name=Guake
+Comment[en_US]=
 Comment=
