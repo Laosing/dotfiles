@@ -34,8 +34,9 @@ declare -a APT_PACKAGES=(
     # "xclip"
     # "zopfli"
     "sublime-text-installer"
-    "tilda"
+    # "tilda"
     # "nodejs"
+    "guake"
 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
