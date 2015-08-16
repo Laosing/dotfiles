@@ -240,7 +240,8 @@ main() {
 
     if answer_is_yes; then
         sudo cp -rf .config/* ~/.config/
-        sudo chown $USER:$USER -R ~/.config/
+        sudo cp -rf .gconf/* ~/.gconf/
+        sudo chown $USER:$USER -R ~/.config/ ~/.gconf
     fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
