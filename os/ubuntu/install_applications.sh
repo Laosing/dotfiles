@@ -83,25 +83,25 @@ add_software_sources() {
 add_curl_software() {
     # NodeJS
     if [ $(cmd_exists "node") -eq 1 ]; then
-        curl -sL https://deb.nodesource.com/setup | sudo bash -
-        sudo apt-get install --allow-unauthenticated -qqy nodejs
-        # && add_ppa "chris-lea/node.js"
+        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+        sudo apt-get install -qqy nodejs
     fi
 
     # Composer
     if [ $(cmd_exists "composer") -eq 1 ]; then
         curl -sS https://getcomposer.org/installer | php
         sudo mv composer.phar /usr/local/bin/composer
-        composer global require drush/drush:7.*
         echo '
         export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
+        composer global require drush/drush
+        drush status
     fi
 
     # RVM & Ruby
-    if [ $(cmd_exists "rvm") -eq 1 ]; then
-        gpg -q --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-        \curl -sSL https://get.rvm.io | bash -s stable --ruby
-    fi
+    # if [ $(cmd_exists "rvm") -eq 1 ]; then
+    #     gpg -q --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    #     \curl -sSL https://get.rvm.io | bash -s stable --ruby
+    # fi
 }
 
 add_source_list() {
