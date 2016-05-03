@@ -6,7 +6,6 @@ declare -a FILES_TO_SYMLINK=(
     "shell/bash_aliases"
     "shell/bash_exports"
     "shell/bash_functions"
-    "shell/bash_logout"
     "shell/bash_options"
     "shell/bash_profile"
     "shell/bash_prompt"
