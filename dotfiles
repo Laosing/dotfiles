@@ -268,6 +268,8 @@ main() {
             sudo a2enmod rewrite
             sudo apt-get -qq install php5-curl
             sudo apt-get -qq install php5-gd
+            sudo apt-get -qq install php7.0-gd
+            sudo apt-get -qq install php-xml
 
             echo '
                 <Directory "/var/www/html">
