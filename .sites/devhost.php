@@ -1,77 +1,81 @@
 <?php
 // Force errors to show
-ini_set('display_errors', '1');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+// global $argv;
 
-// Array of all folders at file directory
+// Array of all folders at file directory, filter for only dev sites
 $sites = glob('*', GLOB_ONLYDIR);
+$dev_sites = array_filter($sites, function($value) {
+  $pathinfo = pathinfo($value);
+  if(isset($pathinfo['extension']) && $pathinfo['extension'] === 'dev')
+    return $pathinfo;
+});
 // Default file locations and settings
 $conf_file = '/etc/apache2/sites-available/000-default.conf';
 $hosts_file = '/etc/hosts';
 $host = "127.0.0.1";
+// $conf_file = '000-default.conf';
+// $hosts_file = 'hosts';
 
-// Enable this for testing purposes
-$testing = FALSE;
-if($testing) {
-  $conf_file = '000-default.conf';
-  $hosts_file = 'hosts';
+function setFile($file) {
+  if(!file_exists($file)) touch($file);
+}
+setFile($conf_file);
+setFile($hosts_file);
+
+$php_devhost = "#--- Generated from php devhost.php ---#";
+
+// 000-default file reset
+$conf_array = file($conf_file, FILE_IGNORE_NEW_LINES);
+$php_devhost_key = array_search($php_devhost, $conf_array);
+if(!$php_devhost_key) {
+  $virtual_host_key = array_search('</VirtualHost>', $conf_array);
+  $directory = "\n
+<Directory \"/var/www/html/\">
+  AllowOverride All
+</Directory>\n
+$php_devhost";
+  array_splice($conf_array, $virtual_host_key+1);
+  file_put_contents($conf_file, implode(PHP_EOL, $conf_array));
+  file_put_contents($conf_file, $directory, FILE_APPEND);
+} else {
+  array_splice($conf_array, $php_devhost_key+1);
+  file_put_contents($conf_file, implode(PHP_EOL, $conf_array));
 }
 
-// Create files if they don't exist
-if(!file_exists($conf_file)) {
-  touch($conf_file);
-}
-if(!file_exists($hosts_file)) {
-  touch($hosts_file);
-}
-
-// Open the file with each line as an Array
-$conf_array = file($conf_file, FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES);
-// Enable to use an alternative port, use as IP:PORT
-$listener = TRUE;
-$listener_default = 1010;
-
-// Get the highest listen port number to use as the starting listener
-$listen_array = array();
-foreach($conf_array as $num => $line) {
-  if(strpos($line, 'listen *:') !== false) {
-    $a = explode(':', $line);
-    $listen_array[] = $a[1];
-  }
-}
-$listen = !empty($listen_array) ? max($listen_array) : $listener_default;
-
-// String for 000-default.conf
-$conf_str = "";
-// String for hosts
-$hosts_str = "";
-foreach($sites as $site) {
-  // Use #site_name to check if the site is already in $conf_file
-  $site_ref = "#$site";
-  if(!in_array($site_ref, $conf_array)) {
-    $listen++;
-    // Add site to conf_str
-    $conf_str .= "\r\n$site_ref\r\n";
-    if($listener) {
-      $listener = "*:$listen";
-      $conf_str .= "listen $listener";
-    }
-    $conf_str .= "
-<VirtualHost *:80 $listener>
-  ServerName $site
-  DocumentRoot /var/www/html/$site
-</VirtualHost>";
-
-    // Add site to host_str
-    $hosts_str .= "\r\n$site_ref\r\n";
-    $hosts_str .= $host . ' ' . $site;
-  }
+// Hosts file reset
+$hosts_array = file($hosts_file, FILE_IGNORE_NEW_LINES);
+$php_host_devhost_key = array_search($php_devhost, $hosts_array);
+$hosts_key = array_search('ff02::2 ip6-allrouters', $hosts_array);
+if(!$php_host_devhost_key) {
+  array_splice($hosts_array, $hosts_key+1);
+  file_put_contents($hosts_file, implode(PHP_EOL, $hosts_array));
+  file_put_contents($hosts_file, PHP_EOL.PHP_EOL.$php_devhost.PHP_EOL, FILE_APPEND);
+} else {
+  array_splice($hosts_array, $php_host_devhost_key+2);
+  file_put_contents($hosts_file, implode(PHP_EOL, $hosts_array));
 }
 
+// Setup strings for files
+$listen = 1010;
+$conf_str = "\n";
+$hosts_str = "\n";
+foreach($dev_sites as $site) {
+  $listen++;
+  $conf_str .= "
+listen *:$listen
+<VirtualHost *:80 *:$listen>
+ServerName $site
+DocumentRoot /var/www/html/$site
+</VirtualHost>" . PHP_EOL;
+
+  $hosts_str .= $host . ' ' . $site . PHP_EOL;
+}
 // For visual purposes to see what is being appended
-echo "<pre>";
-echo "$conf_str";
-echo "<pre>";
-echo "$hosts_str";
+echo $conf_str;
+echo $hosts_str;
 
 // Append strings to files
 file_put_contents($conf_file, $conf_str, FILE_APPEND);
