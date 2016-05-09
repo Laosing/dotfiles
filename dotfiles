@@ -266,8 +266,9 @@ main() {
             echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
             sudo a2enconf fqdn
             sudo a2enmod rewrite
-            sudo apt-get -qq install php5-curl
+            # sudo apt-get -qq install php5-curl
             sudo apt-get -qq install php5-gd
+            sudo apt-get -qq install php-curl
             sudo apt-get -qq install php7.0-gd
             sudo apt-get -qq install php-xml
 
