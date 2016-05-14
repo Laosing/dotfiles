@@ -1,6 +1,6 @@
 {
 	"always_show_minimap_viewport": true,
-	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme",
+	"color_scheme": "Packages/Theme - Otto/schemes/Otto Monokai.tmTheme",
 	"font_size": 11,
 	"ignored_packages":
 	[
@@ -8,7 +8,7 @@
 	],
 	"show_tab_close_buttons": false,
 	"tab_size": 2,
-	"theme": "SoDaReloaded.sublime-theme",
+	"theme": "Otto Monokai.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true

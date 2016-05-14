@@ -4,16 +4,10 @@ cd "$(dirname "${BASH_SOURCE}")" && source "utils.sh"
 
 declare -a FILES_TO_SYMLINK=(
     "shell/bash_aliases"
-    "shell/bash_exports"
-    "shell/bash_functions"
     "shell/bash_options"
     "shell/bash_profile"
     "shell/bash_prompt"
-    "shell/bashrc"
-    "shell/bash.local"
-    "shell/curlrc"
     "shell/inputrc"
-    "shell/screenrc"
 
     "git/gitattributes"
     "git/gitignore"

@@ -44,7 +44,7 @@
 [core]
     attributesfile = ~/.gitattributes
     autocrlf = input
-    editor = vim
+    editor = nano
     excludesfile = ~/.gitignore
 
 [pretty]

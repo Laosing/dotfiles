@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -7,9 +8,10 @@
 		"Emmet",
 		"JavaScript Snippets",
 		"Package Control",
+		"Schemr",
 		"SideBarEnhancements",
 		"Syntax Highlighting for Sass",
-		"Theme - SoDaReloaded",
+		"Theme - Otto",
 		"Themr",
 		"Tomorrow Color Schemes"
 	]

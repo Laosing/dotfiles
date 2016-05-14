@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")" && source "../utils.sh"
 declare -a APT_PACKAGES=(
 
     # Tools for compiling/building software from source
-    "build-essential"
+    # "build-essential"
 
     # GnuPG archive keys of the Debian archive
     # "debian-archive-keyring"
@@ -91,8 +91,7 @@ add_curl_software() {
     if [ $(cmd_exists "composer") -eq 1 ]; then
         curl -sS https://getcomposer.org/installer | php
         sudo mv composer.phar /usr/local/bin/composer
-        echo '
-        export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
+        echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
         composer global require drush/drush
         drush status
     fi
@@ -126,6 +125,12 @@ remove_unneeded_packages() {
 
 }
 
+set_default_editor() {
+    if [ $(cmd_exists "subl") -eq 1 ]; then
+        execute "sudo sed -i 's/gedit.desktop/sublime_text.desktop/g' /etc/gnome/defaults.list"
+    fi
+}
+
 update_and_upgrade() {
 
     # Resynchronize the package index files from their sources
@@ -142,7 +147,7 @@ main() {
 
     local i=""
 
-    add_software_sources
+    # add_software_sources
     update_and_upgrade
 
     printf "\n"
@@ -154,6 +159,7 @@ main() {
     printf "\n"
 
     add_curl_software
+    set_default_editor
     update_and_upgrade
     remove_unneeded_packages
 
