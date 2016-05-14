@@ -126,10 +126,8 @@ function initialize(String $file, $argv)
 };
 
 $files = [
-// $conf_file = '/etc/apache2/sites-available/000-default.conf';
-// $hosts_file = '/etc/hosts';
-  '000-default.conf',
-  'hosts'
+  '/etc/apache2/sites-available/000-default.conf',
+  '/etc/hosts'
 ];
 foreach ($files as $key => $file) {
   initialize($file, $argv);
