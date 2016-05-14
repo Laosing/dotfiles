@@ -112,7 +112,7 @@ function createDirectories(String $file, Array $dev_sites, String $host)
  **/
 function initialize(String $file, $argv)
 {
-  $argv = !is_null($argv) ? '' : $argv[1];
+  $argv = is_null($argv) ? '' : $argv[1];
 
   $sites = getSites();
   createFile($file);
