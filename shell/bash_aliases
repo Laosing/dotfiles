@@ -9,44 +9,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-# ----------------------------------------------------------------------
-# | Network                                                            |
-# ----------------------------------------------------------------------
-
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-if [ "$OS" == "osx" ]; then
-    alias local-ip="ipconfig getifaddr en1"
-elif [ "$OS" == "ubuntu" ]; then
-    alias local-ip="ifconfig | \
-                   grep 'inet addr' | \
-                   grep -v '127.0.0.1' | \
-                   cut -d: -f2 | \
-                   cut -d' ' -f1"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Copy to clipboard
-
-if [ "$OS" == "osx" ]; then
-    alias cc="pbcopy"
-elif [ "$OS" == "ubuntu" ]; then
-    alias cc="xclip -selection clip"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Open
-
-if [ "$OS" == "osx" ]; then
-    alias o="open"
-elif [ "$OS" == "ubuntu" ]; then
-    alias o="xdg-open"
-fi
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Custom
@@ -56,6 +18,7 @@ alias lamp='cd /etc/apache2'
 alias dotfiles='cd ~/dotfiles'
 alias devhost='xdg-open /etc/apache2/sites-available/000-default.conf; xdg-open /etc/hosts;'
 
+alias o="xdg-open"
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
