@@ -13,6 +13,7 @@ error_reporting(E_ALL);
  * @var Array
  **/
 global $argv;
+$argv = is_null($argv) ? array(basename(__FILE__)) : $argv;
 
 /**
  * Array of all dev folders
@@ -110,9 +111,9 @@ function createDirectories(String $file, Array $dev_sites, String $host)
  * @return void
  *
  **/
-function initialize(String $file, $argv)
+function initialize(String $file, Array $argv)
 {
-  $argv = is_null($argv) ? '' : $argv[1];
+  $argv = array_key_exists(1, $argv) ? $argv[1] : '';
 
   $sites = getSites();
   createFile($file);
