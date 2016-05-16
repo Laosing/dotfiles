@@ -260,7 +260,7 @@ main() {
             sudo apt-get -qq install php-curl
             sudo apt-get -qq install php7.0-gd
             sudo apt-get -qq install php-xml
-            sudo apt-get install php7.0-zip
+            sudo apt-get -qq install php7.0-zip
 
             echo '
                 <Directory "/var/www/html">
