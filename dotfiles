@@ -261,6 +261,7 @@ main() {
             sudo apt-get -qq install php7.0-gd
             sudo apt-get -qq install php-xml
             sudo apt-get -qq install php7.0-zip
+            sudo apt-get -qq install php7.0-mbstring
 
             echo '
                 <Directory "/var/www/html">
