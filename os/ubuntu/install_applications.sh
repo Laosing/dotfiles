@@ -83,8 +83,8 @@ add_software_sources() {
 add_curl_software() {
     # NodeJS
     if [ $(cmd_exists "node") -eq 1 ]; then
-        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-        sudo apt-get install -qqy nodejs
+        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - > /dev/null
+        sudo apt-get install -qqy nodejs > /dev/null
     fi
 
     # Composer
@@ -111,7 +111,7 @@ install_package() {
     local q="${2:-$1}"
 
     if [ $(cmd_exists "$q") -eq 1 ]; then
-        execute "sudo apt-get install --allow-unauthenticated -qqy $1" "$1"
+        execute "sudo apt-get install --allow-unauthenticated -qqy $1" "$1" > /dev/null
         #                                      suppress output ─┘│
         #            assume "yes" as the answer to all prompts ──┘
     fi
@@ -121,7 +121,7 @@ remove_unneeded_packages() {
 
     # Remove packages that were automatically installed to satisfy
     # dependencies for other other packages and are no longer needed
-    execute "sudo apt-get autoremove -qqy" "autoremove"
+    execute "sudo apt-get autoremove -qqy" "autoremove" > /dev/null
 
 }
 
@@ -134,10 +134,10 @@ set_default_editor() {
 update_and_upgrade() {
 
     # Resynchronize the package index files from their sources
-    execute "sudo apt-get update -y" "update"
+    execute "sudo apt-get update -y" "update" > /dev/null
 
     # Unstall the newest versions of all packages installed
-    execute "sudo apt-get upgrade -qqy" "upgrade"
+    # execute "sudo apt-get upgrade -qqy" "upgrade"
 
 }
 
@@ -147,7 +147,7 @@ main() {
 
     local i=""
 
-    # add_software_sources
+    add_software_sources
     update_and_upgrade
 
     printf "\n"
