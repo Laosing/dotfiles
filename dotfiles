@@ -201,14 +201,14 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Setup the `dotfiles` if needed
-    # if [ $(cmd_exists "git") -ne 0 ] || \
-    #    [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then
+    Setup the `dotfiles` if needed
+    if [ $(cmd_exists "git") -ne 0 ] || \
+        [ "$(git config --get remote.origin.url)" != "$DOTFILES_ORIGIN" ]; then
 
-    #     print_info "Download and extract archive"
-    #     download_dotfiles
+        print_info "Download and extract archive"
+        download_dotfiles
 
-    # fi
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
