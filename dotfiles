@@ -266,7 +266,7 @@ main() {
             echo '
                 <Directory "/var/www/html">
                     AllowOverride All
-                </Directory>' >> /etc/apache2/sites-available/000-default.conf > /dev/null
+                </Directory>' >> /etc/apache2/sites-available/000-default.conf
 
             sudo service apache2 restart
         fi
