@@ -241,7 +241,7 @@ main() {
     printf "\n"
 
     if answer_is_yes; then
-        sudo apt-get install --allow-unauthenticated -qqy tasksel
+        sudo apt-get install --allow-unauthenticated -qqy tasksel > /dev/null
         sudo tasksel install lamp-server
 
         if [ -d "/etc/apache2" ]; then
@@ -252,21 +252,21 @@ main() {
             sudo chown -R $USER /etc/apache2/sites-available
             sudo chown -R $USER /etc/hosts
 
-            echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
-            sudo a2enconf fqdn
-            sudo a2enmod rewrite
+            echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf > /dev/null
+            sudo a2enconf fqdn > /dev/null
+            sudo a2enmod rewrite > /dev/null
             # sudo apt-get -qq install php5-curl
             # sudo apt-get -qq install php5-gd
-            sudo apt-get -qq install php-curl
-            sudo apt-get -qq install php7.0-gd
-            sudo apt-get -qq install php-xml
-            sudo apt-get -qq install php7.0-zip
-            sudo apt-get -qq install php7.0-mbstring
+            sudo apt-get -qq install php-curl > /dev/null
+            sudo apt-get -qq install php7.0-gd > /dev/null
+            sudo apt-get -qq install php-xml > /dev/null
+            sudo apt-get -qq install php7.0-zip > /dev/null
+            sudo apt-get -qq install php7.0-mbstring > /dev/null
 
             echo '
                 <Directory "/var/www/html">
                     AllowOverride All
-                </Directory>' >> /etc/apache2/sites-available/000-default.conf
+                </Directory>' >> /etc/apache2/sites-available/000-default.conf > /dev/null
 
             sudo service apache2 restart
         fi
