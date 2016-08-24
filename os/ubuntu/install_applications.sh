@@ -89,11 +89,10 @@ add_curl_software() {
 
     # Composer
     if [ $(cmd_exists "composer") -eq 1 ]; then
-        curl -sS https://getcomposer.org/installer | php
+        curl -sS https://getcomposer.org/installer | php > /dev/null
         sudo mv composer.phar /usr/local/bin/composer
-        echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
-        composer global require drush/drush
-        drush status
+        echo 'export PATH="$HOME/.config/composer/vendor/bin:$PATH"' >> ~/.bashrc
+        composer global require drush/drush > /dev/null
     fi
 
     # RVM & Ruby
