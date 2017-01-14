@@ -219,6 +219,11 @@ main() {
 
     print_info "Create symbolic links"
     ./os/create_symbolic_links.sh
+    
+    echo '
+    if [ -f ~/.bash_profile ]; then
+        . ~/.bash_profile
+    fi' >> ~/.bashrc
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
