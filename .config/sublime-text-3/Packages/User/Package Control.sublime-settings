@@ -5,14 +5,13 @@
 	],
 	"installed_packages":
 	[
+		"Base16 Color Schemes",
 		"Emmet",
 		"JavaScript Snippets",
 		"Package Control",
+		"Sass",
 		"Schemr",
 		"SideBarEnhancements",
-		"Syntax Highlighting for Sass",
-		"Theme - Otto",
-		"Themr",
-		"Tomorrow Color Schemes"
+		"Themr"
 	]
 }
