@@ -1,14 +1,14 @@
 {
 	"always_show_minimap_viewport": true,
-	"color_scheme": "Packages/Theme - Otto/schemes/Otto Monokai.tmTheme",
+	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-eighties.tmTheme",
+	"ensure_newline_at_eof_on_save": true,
 	"font_size": 11,
 	"ignored_packages":
 	[
-		"Vintage"
 	],
 	"show_tab_close_buttons": false,
 	"tab_size": 2,
-	"theme": "Otto Monokai.sublime-theme",
+	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true
