@@ -33,7 +33,7 @@ declare -a APT_PACKAGES=(
     # "vlc"
     # "xclip"
     # "zopfli"
-    "sublime-text-installer"
+    # "sublime-text-installer"
     # "tilda"
     # "nodejs"
     "guake"
@@ -76,14 +76,22 @@ add_software_sources() {
                 # "opera.list"
 
     # Sublime Text
-    [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
-        && add_ppa "webupd8team/sublime-text-3"
+    # [ $(cmd_exists "sublime-text-installer") -eq 1 ] \
+        # && add_ppa "webupd8team/sublime-text-3"
+}
+
+install_sublime_text() {
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - > /dev/null
+    sudo apt-get install -qqy apt-transport-https
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list > /dev/null
+    sudo apt-get update > /dev/null
+    sudo apt-get install -qqy sublime-text
 }
 
 add_curl_software() {
     # NodeJS
     if [ $(cmd_exists "node") -eq 1 ]; then
-        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - > /dev/null
+        curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - > /dev/null
         sudo apt-get install -qqy nodejs > /dev/null
     fi
 
@@ -159,6 +167,7 @@ main() {
 
     add_curl_software
     set_default_editor
+    install_sublime_text
     update_and_upgrade
     remove_unneeded_packages
 
