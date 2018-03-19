@@ -26,7 +26,7 @@ function getSites(String $location = '*')
   $sites = glob($location, GLOB_ONLYDIR);
   $dev_sites = array_filter($sites, function($value) {
     $pathinfo = pathinfo($value);
-    if(isset($pathinfo['extension']) && $pathinfo['extension'] === 'dev')
+    if(isset($pathinfo['extension']) && $pathinfo['extension'] === 'local')
       return $pathinfo;
   });
 
