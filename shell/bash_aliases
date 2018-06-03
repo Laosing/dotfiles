@@ -55,7 +55,7 @@ alias xampstart='sudo /opt/lampp/lampp start'
 alias xampstop='sudo /opt/lampp/lampp stop'
 alias xampre='sudo /opt/lampp/lampp restart'
 
-alias are='sudo service apache2 restart; echo -e "\033[1mApache successfully restarted!\033[0m\n";'
+alias are='sudo service apache2 restart && echo -e "\033[1mApache successfully restarted!\033[0m\n" || echo "Apache failed to restart!"'
 
 alias g='git'
 alias gst='git status'
